@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -10,19 +11,20 @@
     "@types/node": "^12.20.12",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",
+    "json-server": "^0.16.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "typescript": "^4.2.4",
-    "web-vitals": "^1.1.2",
-    "json-server": "^0.16.3"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server db.json"
+    "server": "json-server src/api/db.json"
   },
   "eslintConfig": {
     "extends": [
