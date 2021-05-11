@@ -1,0 +1,208 @@
+{
+  "audiences": [
+    {
+      "id": "1",
+      "name": "Pizza Hut Audience, Male, West Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ M", "State EQ CA"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "2",
+      "name": "Pizza Hut Audience, Female, West Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ F", "State EQ CA"],
+          "size": 300000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "size": 400000
+        }
+      ],
+      "totalSize": 350000
+    },
+    {
+      "id": "3",
+      "name": "Domino's Audience, Male, West Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ M", "State EQ CA"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "4",
+      "name": "Domino's Audience, Female, West Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ F", "State EQ CA"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "5",
+      "name": "Pizza Hut Audience, Male, East Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ M", "State EQ NY"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "6",
+      "name": "Pizza Hut Audience, Female, East Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ F", "State EQ NY"],
+          "size": 300000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "size": 400000
+        }
+      ],
+      "totalSize": 350000
+    },
+    {
+      "id": "7",
+      "name": "Domino's Audience, Male, East Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ M", "State EQ NY"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "8",
+      "name": "Domino's Audience, Female, East Coast",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Gender EQ F", "State EQ NY"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "9",
+      "name": "Netflix Subscribers, Young",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Age IS 18 to 25", "Age IS 26 to 35"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Merchant name CONTAINS Netflix"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "10",
+      "name": "Netflix Subscribers, Older",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Age IS 36 to 45", "Age IS 46 to 55"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Merchant name CONTAINS Netflix"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "11",
+      "name": "Disney+ Subscribers, Young",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Age IS 18 to 25", "Age IS 26 to 35"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Merchant name CONTAINS Disney+"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    },
+    {
+      "id": "12",
+      "name": "Disney+ Subscribers, Older",
+      "dimensions": [
+        {
+          "type": "Demographic",
+          "filters": ["Age IS 36 to 45", "Age IS 46 to 55"],
+          "size": 200000
+        },
+        {
+          "type": "Transaction",
+          "filters": ["Merchant name CONTAINS Disney+"],
+          "size": 300000
+        }
+      ],
+      "totalSize": 250000
+    }
+  ]
+}
