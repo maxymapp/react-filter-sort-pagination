@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-    fetchAudiences, selectAllAudiences, searchById, searchByName, sortById, sortByName, sortBySizeTotal
+    fetchAudiences, selectAllAudiences, searchById, searchByName, sortById, sortByName, sortBySizeTotal, loadData
 } from "../store";
 import Audience from "./Audience";
 
@@ -11,12 +11,6 @@ const AudienceList = () => {
 
     const audiences = useSelector(selectAllAudiences);
     const audienceStatus = useSelector((state) => state.audience.status);
-
-    useEffect(() => {
-        if (audienceStatus === "idle") {
-            dispatch(fetchAudiences());
-        }
-    }, [audienceStatus, dispatch]);
 
     const searchByIdHandler = (e) => {
         let input = e.target.value;
@@ -42,8 +36,8 @@ const AudienceList = () => {
         <>
             <h3>Audiences</h3>
 
-            <select onChange={e => sortByInput(e)}>
-                <option value="" disabled selected>Sort by</option>
+            <select defaultValue={''} onChange={e => sortByInput(e)}>
+                <option value='' disabled>Sort by</option>
                 <option value={'id_asc'}>ID - Lowest to Highest</option>
                 <option value={'id_asc'}>ID - Highest to Lowest</option>
                 <option value={'name_asc'}> Name - A-Z</option>
