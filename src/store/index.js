@@ -13,6 +13,7 @@ const SEARCH_BY_ID = "SEARCH_BY_ID";
 const SEARCH_BY_NAME = "SEARCH_BY_NAME";
 
 const LOAD_DATA = "LOAD_DATA"
+const SET_PAGE = "SET_PAGE"
 
 export const loadData = payload => ({
     type: LOAD_DATA,
@@ -40,12 +41,18 @@ export const searchByName = payload => ({
     type: SEARCH_BY_NAME,
     payload
 });
+export const setPage = payload => ({
+    type: SET_PAGE,
+    payload
+});
 
 const initialState = {
     audiences: [],
-    appliedFilters: [],
+    slicedAudiences: [],
     status: "idle",
     error: null,
+    page: 1,
+    pageSize: 5
 }
 
 const audienceSlice = createSlice({
@@ -89,10 +96,37 @@ const audienceSlice = createSlice({
         },
         "SORT_BY_SIZE_TOTAL": (state, action) => {
 
+        },
+        "SORT_BY_NAME": (state, action) => {
+
+        },
+        "SORT_BY_ID": (state, action) => {
+
+        },
+        "SET_PAGE": (state, action) => {
+            const page = action.payload.page
+        },
+        "LOAD_DATA": (state, action) => {
+            const page = state.page
+            console.log("in load data for page: " + page)
+            //
+            const count = state.audiences.length
+            console.log("state.audiences.length: " + count)
+
+
+            const totalPages = Math.ceil(count / state.pageSize);
+            // console.log(totalPages)
+            let stateCopy = Object.assign({}, state)
+            // console.log(filteredAudiences)
+            let slicedAudiences = stateCopy.audiences.slice(0, state.pageSize)
+            // console.log(slicedAudiences)
+            return {...state, slicedAudiences, page, totalPages}
         }
     },
 })
 export const selectAllAudiences = (state) => state.audience.audiences;
+export const slicedAudiences = (state) => state.audience.slicedAudiences;
+export const selectPage = (state) => state.audience.page;
 export const selectAudienceStatus = (state) => state.audience.status;
 
 const store = configureStore({
