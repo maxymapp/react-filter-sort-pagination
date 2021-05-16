@@ -12,6 +12,13 @@ const SORT_BY_SIZE_TOTAL = "SORT_BY_SIZE_TOTAL";
 const SEARCH_BY_ID = "SEARCH_BY_ID";
 const SEARCH_BY_NAME = "SEARCH_BY_NAME";
 
+const LOAD_DATA = "LOAD_DATA"
+
+export const loadData = payload => ({
+    type: LOAD_DATA,
+    payload
+});
+
 export const sortById = payload => ({
     type: SORT_BY_ID,
     payload
@@ -36,6 +43,7 @@ export const searchByName = payload => ({
 
 const initialState = {
     audiences: [],
+    appliedFilters: [],
     status: "idle",
     error: null,
 }
