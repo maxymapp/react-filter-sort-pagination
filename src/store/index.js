@@ -69,11 +69,9 @@ const audienceSlice = createSlice({
         },
         "SEARCH_BY_NAME": (state, action) => {
             let val = action.payload.value.toLowerCase();
-            console.log("in SEARCH_BY_NAME")
+
             let filtered = state.audiences.filter(aud => {
-                // console.log(aud.name.toLowerCase())
                 // console.log(aud.name.toLowerCase().includes(val))
-                //return any audience whose name contains the input box string
                 return aud.name.toLowerCase().includes(val);
             });
             return {
@@ -87,7 +85,7 @@ const audienceSlice = createSlice({
     },
 })
 export const selectAllAudiences = (state) => state.audience.audiences;
-
+export const selectAudienceStatus = (state) => state.audience.status;
 
 const store = configureStore({
     reducer: combineReducers({
@@ -124,4 +122,15 @@ function sortDesc(arr, field) {
 
         return 0;
     });
+}
+function addFilterIfNotExists(filter, appliedFilters) {
+    let index = appliedFilters.indexOf(filter);
+    if (index === -1) appliedFilters.push(filter);
+
+    return appliedFilters;
+}
+function removeFilter(filter, appliedFilters) {
+    let index = appliedFilters.indexOf(filter);
+    appliedFilters.splice(index, 1);
+    return appliedFilters;
 }
