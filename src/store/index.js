@@ -2,7 +2,7 @@ import {configureStore, createSlice, createAsyncThunk, combineReducers} from "@r
 import { client } from "../api/client"
 
 export const fetchAudiences = createAsyncThunk("audiences", async () => {
-    return await client.get("http://localhost:3000/audiences");
+    return await client.get("/audiences");
 });
 
 const SORT_BY_ID = "SORT_BY_ID";
