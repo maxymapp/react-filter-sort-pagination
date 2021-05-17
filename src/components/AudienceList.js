@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-    selectAllAudiences,
     searchById,
     searchByName,
     sortById,
     sortByName,
     sortBySizeTotal,
-    loadData, selectPage, setPage, slicedAudiences
+    loadData, selectPage, selectSlicedAudiences, selectPagesTotal
 } from "../store";
 import Audience from "./Audience";
 
@@ -15,10 +14,9 @@ import Audience from "./Audience";
 const AudienceList = () => {
     const dispatch = useDispatch();
 
-    const allAudiences = useSelector(selectAllAudiences);
-    // const slicedAudiences = useSelector(slicedAudiences);
-    const [audiences, setAudiences] = useState([])
+    const slicedAudiences = useSelector(selectSlicedAudiences)
     const page = useSelector(selectPage)
+    const pagesTotal = useSelector(selectPagesTotal)
 
     const searchByIdHandler = (e) => {
         let input = e.target.value;
@@ -40,10 +38,7 @@ const AudienceList = () => {
             dispatch(sortBySizeTotal({order}))
         }
     }
-    const changePage = (e) => {
-        let [newPage] = e.target.value;
-        dispatch(setPage({newPage}))
-    }
+    const changePage = (page) => dispatch(loadData({page}))
 
     /*useEffect(() => {
         dispatch(loadData({page}))
@@ -66,20 +61,19 @@ const AudienceList = () => {
             <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='text'/>
             <input placeholder='Search by Name' onChange={e=> searchByNameHandler(e)} type='text'/>
 
-            <button onClick={() => changePage(page-1)}>go back</button>
-            <button onClick={() => changePage(page+1)}>go forward</button>
-            <button onClick={() => dispatch(loadData({page}))}>Load Page</button>
+            <button disabled={page==0} onClick={() => changePage(page-1)}>Previous Page</button>
+            <button disabled={!(pagesTotal-1 > page)} onClick={() => changePage(page+1)}>Next Page</button>
 
             <div className={'audListCont'}>
-                {audiences &&
-                audiences.length > 0 &&
-                audiences.map((aud, index) => (
+                {slicedAudiences &&
+                slicedAudiences.length > 0 &&
+                slicedAudiences.map((aud, index) => (
                     <Audience aud={aud} key={index}/>
                 ))}
             </div>
         </>
     );
-};
+}
 
 export default AudienceList;
 
