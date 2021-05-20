@@ -43,11 +43,13 @@ export const searchByName = payload => ({
 
 const initialState = {
     audiences: [],
-    slicedAudiences: [],
-    status: "idle",
-    error: null,
+    filteredRecords: [],
+    displayedRecords: [],
+    pagesTotal: 0,
     page: 0,
-    pageSize: 5
+    pageSize: 5,
+    status: "idle",
+    error: null
 }
 
 const audienceSlice = createSlice({
