@@ -95,13 +95,13 @@ const audienceSlice = createSlice({
             };
         },
         "SORT_BY_SIZE_TOTAL": (state, action) => {
-
+            //sort filteredRecords
         },
         "SORT_BY_NAME": (state, action) => {
-
+            //sort filteredRecords
         },
         "SORT_BY_ID": (state, action) => {
-
+            //sort filteredRecords
         },
         "LOAD_DATA": (state, action) => {
             const page = action.payload.page
