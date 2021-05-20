@@ -6,7 +6,7 @@ import {
     sortById,
     sortByName,
     sortBySizeTotal,
-    loadData, selectPage, selectSlicedAudiences, selectPagesTotal
+    loadData, selectPage, selectDisplayedRecords, selectPagesTotal
 } from "../store";
 import Audience from "./Audience";
 
@@ -14,7 +14,7 @@ import Audience from "./Audience";
 const AudienceList = () => {
     const dispatch = useDispatch();
 
-    const slicedAudiences = useSelector(selectSlicedAudiences)
+    const displayedRecords = useSelector(selectDisplayedRecords)
     const page = useSelector(selectPage)
     const pagesTotal = useSelector(selectPagesTotal)
 
@@ -60,9 +60,9 @@ const AudienceList = () => {
             <button disabled={!(pagesTotal-1 > page)} onClick={() => changePage(page+1)}>Next Page</button>
 
             <div className={'audListCont'}>
-                {slicedAudiences &&
-                slicedAudiences.length > 0 &&
-                slicedAudiences.map((aud, index) => (
+                {displayedRecords &&
+                displayedRecords.length > 0 &&
+                displayedRecords.map((aud, index) => (
                     <Audience aud={aud} key={index}/>
                 ))}
             </div>

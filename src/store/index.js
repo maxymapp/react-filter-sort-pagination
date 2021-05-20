@@ -63,11 +63,11 @@ const audienceSlice = createSlice({
             state.status = "succeeded";
             // Populate state with fetched comments
             state.audiences = state.audiences.concat(action.payload);
-            const audiencesTotal = state.audiences.length
-            state.audiencesTotal = audiencesTotal
-            const pagesTotal = Math.ceil(audiencesTotal / state.pageSize);
-            state.pagesTotal = pagesTotal
-            state.slicedAudiences = state.audiences.slice(0, state.pageSize)
+            if(state.audiences.length) {
+                state.recordsCount = state.audiences.length
+                state.pagesTotal = Math.ceil(state.audiences.length / state.pageSize)
+                state.displayedRecords = state.audiences.slice(0, state.pageSize)
+            }
         },
         [fetchAudiences.rejected]: (state, action) => {
             state.status = "failed";
@@ -86,14 +86,19 @@ const audienceSlice = createSlice({
         },
         "SEARCH_BY_NAME": (state, action) => {
             let val = action.payload.value.toLowerCase();
-
-            let filtered = state.audiences.filter(aud => {
+            //if val is cleared reset filter
+            let filteredRecords = state.audiences.filter(aud => {
                 // console.log(aud.name.toLowerCase().includes(val))
                 return aud.name.toLowerCase().includes(val);
             });
+            state.pagesTotal = Math.ceil(filteredRecords.length / state.pageSize)
+            state.page = 0;
+            //always show 1st page content
+            const displayedRecords = filteredRecords.slice(0, state.pageSize)
             return {
                 ...state,
-                audiences: filtered,
+                filteredRecords,
+                displayedRecords
             };
         },
         "SORT_BY_SIZE_TOTAL": (state, action) => {
@@ -110,13 +115,14 @@ const audienceSlice = createSlice({
             console.log("in load data for page: " + page)
             let stateCopy = Object.assign({}, state)
             const startIndex = page*state.pageSize
-            let slicedAudiences = stateCopy.audiences.slice(startIndex, startIndex + state.pageSize)
-            return {...state, slicedAudiences, page}
+            //to paginate filtered records, slice state.filtered
+            let displayedRecords = stateCopy.audiences.slice(startIndex, startIndex + state.pageSize)
+            return {...state, displayedRecords, page}
         }
     },
 })
 export const selectAllAudiences = (state) => state.audience.audiences;
-export const selectSlicedAudiences = (state) => state.audience.slicedAudiences;
+export const selectDisplayedRecords = (state) => state.audience.displayedRecords;
 export const selectPage = (state) => state.audience.page;
 export const selectPagesTotal = (state) => state.audience.pagesTotal;
 export const selectAudienceStatus = (state) => state.audience.status;
