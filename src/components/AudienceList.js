@@ -40,11 +40,6 @@ const AudienceList = () => {
     }
     const changePage = (page) => dispatch(loadData({page}))
 
-    /*useEffect(() => {
-        dispatch(loadData({page}))
-        // setAudiences(slicedAudiences)
-    }, [])
-*/
     return (
         <>
             <h3>Audiences</h3>
