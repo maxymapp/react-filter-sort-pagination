@@ -20,6 +20,7 @@ const audienceSlice = createSlice({
     name: 'audience',
     initialState: initialState,
     reducers: {
+        //TODO: most recent filter resets previous filters - filters don't accumulate, but reset each other, not yielding the intersection of subsets
         searchById(state, action) {
             let val = action.payload.value;
             state.displayedRecords = state.audiences.filter(aud => {
