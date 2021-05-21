@@ -22,14 +22,9 @@ const audienceSlice = createSlice({
     reducers: {
         searchById(state, action) {
             let val = action.payload.value;
-
-            let filtered = state.audiences.filter(aud => {
+            state.displayedRecords = state.audiences.filter(aud => {
                 return aud.id === val;
-            });
-            return {
-                ...state,
-                audiences: filtered,
-            };
+            })
         },
         searchByName(state, action) {
             let val = action.payload.value.toLowerCase();
@@ -42,11 +37,8 @@ const audienceSlice = createSlice({
             state.page = 0;
             //always show 1st page content
             const displayedRecords = filteredRecords.slice(0, state.pageSize)
-            return {
-                ...state,
-                filteredRecords,
-                displayedRecords
-            };
+            state.filteredRecords = filteredRecords
+            state.displayedRecords = displayedRecords
         },
         // sortBySizeTotal(state, action) {
         //     //sort filteredRecords
@@ -63,8 +55,8 @@ const audienceSlice = createSlice({
             let stateCopy = Object.assign({}, state)
             const startIndex = page*state.pageSize
             //to paginate filtered records, slice state.filtered
-            let displayedRecords = stateCopy.audiences.slice(startIndex, startIndex + state.pageSize)
-            return {...state, displayedRecords, page}
+            state.displayedRecords = stateCopy.audiences.slice(startIndex, startIndex + state.pageSize)
+            state.page = page
         }
     },
     extraReducers: {
