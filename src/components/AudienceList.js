@@ -6,7 +6,12 @@ import {
     sortById,
     sortByName,
     sortBySizeTotal,
-    loadData, selectPage, selectDisplayedRecords, selectPagesTotal, selectAllAudiences
+    loadData,
+    selectPage,
+    selectDisplayedRecords,
+    selectPagesTotal,
+    selectAllAudiences,
+    selectFilteredRecords
 } from "../store";
 import Audience from "./Audience";
 import './AudienceList.css'
@@ -16,6 +21,7 @@ const AudienceList = () => {
 
     const allAudiences = useSelector(selectAllAudiences)
     const displayedRecords = useSelector(selectDisplayedRecords)
+    const filteredRecords = useSelector(selectFilteredRecords)
     const page = useSelector(selectPage)
     const pagesTotal = useSelector(selectPagesTotal)
 

@@ -76,6 +76,7 @@ const audienceSlice = createSlice({
 })
 export const selectAllAudiences = (state) => state.audience.audiences;
 export const selectDisplayedRecords = (state) => state.audience.displayedRecords;
+export const selectFilteredRecords = (state) => state.audience.filteredRecords;
 export const selectPage = (state) => state.audience.page;
 export const selectPagesTotal = (state) => state.audience.pagesTotal;
 export const selectAudienceStatus = (state) => state.audience.status;
