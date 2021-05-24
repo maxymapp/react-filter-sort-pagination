@@ -58,7 +58,7 @@ const AudienceList = () => {
             <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='number' min="0" max={allAudiences.length-1} />
             <input placeholder='Search by Name' onChange={e=> searchByNameHandler(e)} type='text'/>
 
-            <button disabled={page==0} onClick={() => changePage(page-1)}>Previous Page</button>
+            <button disabled={page===0} onClick={() => changePage(page-1)}>Previous Page</button>
             <button disabled={!(pagesTotal-1 > page)} onClick={() => changePage(page+1)}>Next Page</button>
 
             <div className={'audListCont'}>

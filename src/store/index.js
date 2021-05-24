@@ -43,6 +43,9 @@ const audienceSlice = createSlice({
         },
         loadData(state, action) {
             const page = action.payload.page
+            if(page === 0) {
+                state.filteredRecords = []
+            }
             console.log("in load data for page: " + page)
             let stateCopy = Object.assign({}, state)
             const startIndex = page*state.pageSize
