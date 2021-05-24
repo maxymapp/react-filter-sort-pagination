@@ -41,15 +41,6 @@ const audienceSlice = createSlice({
             state.filteredRecords = filteredRecords
             state.displayedRecords = displayedRecords
         },
-        // sortBySizeTotal(state, action) {
-        //     //sort filteredRecords
-        // },
-        // sortByName(state, action) {
-        //     //sort filteredRecords
-        // },
-        // sortById(state, action) {
-        //     //sort filteredRecords
-        // },
         loadData(state, action) {
             const page = action.payload.page
             console.log("in load data for page: " + page)
@@ -103,34 +94,3 @@ const store = configureStore({
 // }
 
 export default store;
-
-function sortAsc(arr, field) {
-    return arr.sort(function(a, b) {
-        if (a[field] > b[field]) return 1;
-
-        if (b[field] > a[field]) return -1;
-
-        return 0;
-    });
-}
-
-function sortDesc(arr, field) {
-    return arr.sort(function(a, b) {
-        if (a[field] > b[field]) return -1;
-
-        if (b[field] > a[field]) return 1;
-
-        return 0;
-    });
-}
-function addFilterIfNotExists(filter, appliedFilters) {
-    let index = appliedFilters.indexOf(filter);
-    if (index === -1) appliedFilters.push(filter);
-
-    return appliedFilters;
-}
-function removeFilter(filter, appliedFilters) {
-    let index = appliedFilters.indexOf(filter);
-    appliedFilters.splice(index, 1);
-    return appliedFilters;
-}
