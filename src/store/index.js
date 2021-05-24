@@ -63,6 +63,7 @@ const audienceSlice = createSlice({
             // Populate state with fetched comments
             state.audiences = state.audiences.concat(action.payload);
             if(state.audiences.length) {
+                state.filteredRecords = state.audiences.slice()
                 state.recordsCount = state.audiences.length
                 state.pagesTotal = Math.ceil(state.audiences.length / state.pageSize)
                 state.displayedRecords = state.audiences.slice(0, state.pageSize)
