@@ -20,7 +20,8 @@ const AudienceList = () => {
 
     const searchByIdHandler = (e) => {
         let input = e.target.value;
-        dispatch(searchById({value: input}))
+        if(!input) dispatch(loadData({page}))
+        else dispatch(searchById({value: input}))
     }
     const searchByNameHandler = (e) => {
         let input = e.target.value;
