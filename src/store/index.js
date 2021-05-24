@@ -85,12 +85,4 @@ const store = configureStore({
     devTools: true,
 });
 
-// if (module.hot) {
-//     module.hot.accept("./audienceSlice.reducer", () => {
-//         const reducers = require("store/slices").default;
-//
-//         store.replaceReducers(reducers);
-//     });
-// }
-
 export default store;
