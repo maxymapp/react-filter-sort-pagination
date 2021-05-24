@@ -6,14 +6,15 @@ import {
     sortById,
     sortByName,
     sortBySizeTotal,
-    loadData, selectPage, selectDisplayedRecords, selectPagesTotal
+    loadData, selectPage, selectDisplayedRecords, selectPagesTotal, selectAllAudiences
 } from "../store";
 import Audience from "./Audience";
-
+import './AudienceList.css'
 
 const AudienceList = () => {
     const dispatch = useDispatch();
 
+    const allAudiences = useSelector(selectAllAudiences)
     const displayedRecords = useSelector(selectDisplayedRecords)
     const page = useSelector(selectPage)
     const pagesTotal = useSelector(selectPagesTotal)
@@ -54,7 +55,7 @@ const AudienceList = () => {
                 <option value={'size_asc'}> Size Total - Lowest to Highest</option>
                 <option value={'size_desc'}>Size Total - Highest to Lowest</option>
             </select>
-            <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='text'/>
+            <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='number' min="0" max={allAudiences.length-1} />
             <input placeholder='Search by Name' onChange={e=> searchByNameHandler(e)} type='text'/>
 
             <button disabled={page==0} onClick={() => changePage(page-1)}>Previous Page</button>
