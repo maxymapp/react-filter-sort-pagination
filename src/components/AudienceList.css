@@ -1,3 +1,9 @@
+#page-controls, #search-inputs {
+    display: block;
+}
+select, input, button {
+    margin: 1em;
+}
 input[type=number] {
     width: 100px;
 }

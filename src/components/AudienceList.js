@@ -52,6 +52,11 @@ const AudienceList = () => {
         <>
             <h3>Audiences</h3>
 
+            <div id={'search-inputs'}>
+                <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='number' min="0" max={allAudiences.length-1} />
+                <input placeholder='Search by Name' onChange={e=> searchByNameHandler(e)} type='text'/>
+            </div>
+
             <select defaultValue={''} onChange={e => sortByInput(e)}>
                 <option value='' disabled>Sort by</option>
                 <option value={'id_asc'}>ID - Lowest to Highest</option>
@@ -61,11 +66,11 @@ const AudienceList = () => {
                 <option value={'size_asc'}> Size Total - Lowest to Highest</option>
                 <option value={'size_desc'}>Size Total - Highest to Lowest</option>
             </select>
-            <input placeholder='Search by ID' onChange={e=> searchByIdHandler(e)} type='number' min="0" max={allAudiences.length-1} />
-            <input placeholder='Search by Name' onChange={e=> searchByNameHandler(e)} type='text'/>
 
-            <button disabled={page===0} onClick={() => changePage(page-1)}>Previous Page</button>
-            <button disabled={!(pagesTotal-1 > page)} onClick={() => changePage(page+1)}>Next Page</button>
+            <div id={'page-controls'}>
+                <button disabled={page===0} onClick={() => changePage(page-1)}>Previous Page</button>
+                <button disabled={!(pagesTotal-1 > page)} onClick={() => changePage(page+1)}>Next Page</button>
+            </div>
 
             <div className={'audListCont'}>
                 {displayedRecords &&
