@@ -29,17 +29,18 @@ const audienceSlice = createSlice({
         },
         searchByName(state, action) {
             let val = action.payload.value.toLowerCase();
-            //if val is cleared reset filter
-            let filteredRecords = state.audiences.filter(aud => {
+            //TODO: if val is cleared reset filter
+
+            let filteredRecords = state.filteredRecords.filter(aud => {
                 // console.log(aud.name.toLowerCase().includes(val))
                 return aud.name.toLowerCase().includes(val);
             });
-            state.pagesTotal = Math.ceil(filteredRecords.length / state.pageSize)
-            state.page = 0;
-            //always show 1st page content
-            const displayedRecords = filteredRecords.slice(0, state.pageSize)
             state.filteredRecords = filteredRecords
-            state.displayedRecords = displayedRecords
+            state.pagesTotal = Math.ceil(filteredRecords.length / state.pageSize)
+
+            //always start showing results starting with 1st page
+            state.page = 0;
+            state.displayedRecords = filteredRecords.slice(0, state.pageSize)
         },
         loadData(state, action) {
             const page = action.payload.page
