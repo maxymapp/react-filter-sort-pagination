@@ -27,7 +27,11 @@ const AudienceList = () => {
 
     const searchByIdHandler = (e) => {
         let input = e.target.value;
-        if(!input) dispatch(loadData({page}))
+        if(!input) {
+            dispatch(loadData({page}))
+            //TODO: clear filter
+
+        }
         else dispatch(searchById({value: input}))
     }
     const searchByNameHandler = (e) => {
