@@ -11,7 +11,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Pizza Hub"
+          ],
           "size": 300000
         }
       ],
@@ -28,7 +32,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Pizza Hub"
+          ],
           "size": 400000
         }
       ],
@@ -45,7 +53,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Domino's"
+          ],
           "size": 300000
         }
       ],
@@ -62,7 +74,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Domino's"
+          ],
           "size": 300000
         }
       ],
@@ -79,7 +95,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Pizza Hub"
+          ],
           "size": 300000
         }
       ],
@@ -96,7 +116,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Pizza Hub"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Pizza Hub"
+          ],
           "size": 400000
         }
       ],
@@ -113,7 +137,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Domino's"
+          ],
           "size": 300000
         }
       ],
@@ -130,7 +158,11 @@
         },
         {
           "type": "Transaction",
-          "filters": ["Paycheck GT 2000", "Number of transactions per month GT 10", "Merchant name CONTAINS Domino's"],
+          "filters": [
+            "Paycheck GT 2000",
+            "Number of transactions per month GT 10",
+            "Merchant name CONTAINS Domino's"
+          ],
           "size": 300000
         }
       ],

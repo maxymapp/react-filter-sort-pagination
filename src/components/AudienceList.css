@@ -1,13 +1,15 @@
-#page-controls, #search-inputs {
-    display: block;
+#page-controls,
+#search-inputs {
+  display: block;
 }
-select, input, button {
-    margin: 1em;
+select,
+input,
+button {
+  margin: 1em;
 }
-input[type=number] {
-    width: 100px;
+input[type="number"] {
+  width: 100px;
 }
-input[type=text] {
-    width: 200px;
+input[type="text"] {
+  width: 200px;
 }
-
